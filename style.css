@@ -1,5 +1,6 @@
-html {
+html, body {
     background-color: #CFD8DC;
+    margin: 0; height: 100%; overflow: hidden
 }
 
 .header {
@@ -99,4 +100,36 @@ html {
     border: 1px solid black;
     border-radius: 50%;
     padding: 10px;
+}
+
+
+.content {
+    display: flex;
+    gap: 12px;
+
+}
+.posts {
+    border: 1px solid black;
+    margin-top: 50px;
+    height: auto;
+    width: 80%;
+    margin: 50px auto auto 50px;
+    height: 750px;
+    overflow-y: scroll;
+    scrollbar-color: #7a7a7a #383838;
+    scrollbar-width: thin;
+    padding: 14px;
+}
+
+.friends {
+    border: 1px solid black;
+    margin-top: 50px;
+    width: 15%;
+    margin: 50px 50px auto auto;
+    height: 750px;
+    overflow-y: scroll;
+    scrollbar-color: #7a7a7a #383838;
+    scrollbar-width: thin;
+    padding: 14px;
+
 }
