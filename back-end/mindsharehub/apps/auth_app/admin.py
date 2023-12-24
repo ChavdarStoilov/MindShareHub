@@ -19,7 +19,6 @@ class AdminUsers(UserAdmin):
     )
     
     form = CustomChangeForm
-    add_form = CustomCreateForm
     
     fieldsets = (
         (
