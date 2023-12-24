@@ -1,3 +1,50 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
+from django.contrib.auth import get_user_model
 
-# Create your models here.
+USER_MODEL = get_user_model()
+
+class UserProfile(models.Model):
+    
+    STATUS = (
+        ('online', 'online'),
+        ('offline', 'offline'),
+        ('do not disturb', 'do not disturb'),
+    )
+    
+    first_name = models.CharField(
+        _("first name"),
+        max_length=150,
+        blank=True
+    )
+    last_name = models.CharField(
+        _("last name"),
+        max_length=150, 
+        blank=True
+    )
+    
+    email = models.EmailField(_("email address"), blank=True)
+    
+    avatar = models.URLField(
+        _("avatar"),
+        blank=True
+    )
+    
+    desc = models.TextField(
+        max_length=300,
+        blank=True,
+    )
+    
+    status = models.CharField(
+        _('status'), 
+        choices=STATUS,
+        max_length=18,
+        default='online',
+    )
+    
+    user_id = models.ForeignKey(
+        USER_MODEL,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+    )
