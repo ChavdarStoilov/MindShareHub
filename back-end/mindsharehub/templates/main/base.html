@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href={% static "css/main/base.css" %}>
+
     {% block styles %}
     {% endblock  %}
     <link rel="shortcut icon" href={% static "img/favicon.ico" %} type="image/x-icon">  
@@ -36,11 +38,15 @@
             </li>
             <li class="auth-menu-btn">
                 {% if profile.avatar %}
-                    <img src="{{profile.avatar}}" alt="" class="profile-avatar">
+                    <img src="{{profile.avatar}}" alt="profile-avatar" class="profile-avatar">
                 {% else %}
                     <i class="fas fa-user"></i>
                 {% endif %}
                 <span class="tooltiptext">Profile</span>
+                <div class='profile-dropdown'>
+                    <a>Profile</a>
+                    <a href={% url "logouting" %}>Logout</a>
+                </div>
             </li>
         </ul>
     </header>
