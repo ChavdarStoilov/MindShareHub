@@ -1,3 +1,4 @@
+from typing import Any
 from django import forms
 from django.contrib.auth import get_user_model, forms as auth_forms
 from ..rest_api.models import UserProfile
@@ -60,5 +61,26 @@ class CustomCreateForm(auth_forms.UserCreationForm):
             "last_name",
             "email",
         ]
+        
+        
+    def save(self, commit=True):
+        user=super().save(commit=commit)
+        
+        first_name = self.cleaned_data['first_name']
+        last_name = self.cleaned_data['last_name']
+        email = self.cleaned_data['email']
+        
+      
+        profile = UserProfile(
+            first_name = first_name,
+            last_name = last_name,
+            email=email,
+            user_id=user,
+        )
+      
+        if commit:
+            profile.save()
+        
+        return user
         
     
