@@ -43,7 +43,7 @@ Steps for deployment:
 
     1. User Profiles:
 
-        *   Registration and login functionality.
+        *   Registration and login functionality. - Done
         *   Customization of user profiles, including avatar, biography, and contact information.
 
     2. Statuses and Activities:
@@ -159,7 +159,6 @@ Web application design:
 
         *   Регистрация и вход в системата. - Готово
         *   Редактиране на потребителски профил (аватар, биография, контактна информация).
-        *   Статуси и активности:
 
     2. Публикуване на текстови статуси или идеи.
 
