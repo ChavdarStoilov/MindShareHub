@@ -33,7 +33,12 @@
             <li class="auth-menu-btn"><i class="far fa-comment-dots"></i>
                 <span class="tooltiptext">Messages</span>
             </li>
-            <li class="auth-menu-btn"><i class="fas fa-user"></i>
+            <li class="auth-menu-btn">
+                {% if profile.avatar %}
+                    <img src="{{profile.avatar}}" alt="" class="profile-avatar">
+                {% else %}
+                    <i class="fas fa-user"></i>
+                {% endif %}
                 <span class="tooltiptext">Profile</span>
             </li>
         </ul>
@@ -41,7 +46,7 @@
 
     <main>
         <div class="content">
-
+            
             <section class="posts">
 
             </section>
@@ -57,4 +62,5 @@
     </footer>
 </body>
 <script src="{% static "js/homePage.js" %}"></script>
+<script src="{% static "js/api.js" %}"></script>
 </html>
