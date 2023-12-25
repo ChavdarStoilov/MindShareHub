@@ -58,6 +58,10 @@ html, body {
     position: relative;
 }
 
+.middle-menu-btn a {
+    color: #000000;
+}
+
 .middle-menu-btn .tooltiptext, 
 .auth-menu-btn .tooltiptext {
     visibility: hidden;

@@ -16,13 +16,13 @@
 <body>
     <header class="header">
         <div class="logo-search">
-            <img src={% static "img/logo.png" %} alt="logo" class="logo">
+            <a href={% url "home_page" %}><img src={% static "img/logo.png" %} alt="logo" class="logo"></a>
             <i class="fas fa-search"></i>
         </div>
 
         <ul class="middle-menu">
-            <li class="middle-menu-btn"><i class="fas fa-home"></i>
-                <span class="tooltiptext">Home Page</span>
+            <li class="middle-menu-btn"><a href={% url "home_page" %}><i class="fas fa-home"></i></a>
+                <a class="tooltiptext">Home Page</a>    
             </li>
             <li class="middle-menu-btn"><i class="fas fa-users"></i>
                 <span class="tooltiptext">Groups</span>

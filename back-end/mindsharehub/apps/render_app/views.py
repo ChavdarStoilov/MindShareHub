@@ -5,6 +5,8 @@ from django.views import generic
 from django.http import Http404
 from ..rest_api.models import UserProfile
 from .forms import UserProfileForm
+from django.utils.translation import gettext as _
+
 
 class HomePage(LoginRequiredMixin, generic.TemplateView):
     template_name = 'main/home.html'
