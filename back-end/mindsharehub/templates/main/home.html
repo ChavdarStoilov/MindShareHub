@@ -1,0 +1,18 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href={% static "css/homePage.css" %}>
+{% endblock  %}
+
+{% block content %}
+    <section class="posts">
+    </section>
+
+    <section class="friends">
+    </section>
+{% endblock  %}
+
+{% block js %}
+<script src="{% static "js/homePage.js" %}"></script>
+{% endblock %}

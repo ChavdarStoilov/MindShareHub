@@ -2,6 +2,7 @@ from typing import Any
 from django import forms
 from django.contrib.auth import get_user_model, forms as auth_forms
 from ..rest_api.models import UserProfile
+from django.contrib.auth.forms import AuthenticationForm
 
 USER_MODEL = get_user_model()
 
@@ -16,23 +17,8 @@ class CustomChangeForm(forms.ModelForm):
        )
         
         
-class CustomLoginForm(forms.ModelForm):
-    username = forms.CharField(
-       widget=
-            forms.TextInput()
-    )
-
-    password1 = forms.CharField(
-        widget = forms.PasswordInput(),
-        label = "Password"
-    )
-
-    class Meta:
-        model = USER_MODEL
-        fields =(
-            'username',
-            'password1',
-        )
+class CustomLoginForm(AuthenticationForm):
+    pass
 
 class CustomCreateForm(auth_forms.UserCreationForm):
     

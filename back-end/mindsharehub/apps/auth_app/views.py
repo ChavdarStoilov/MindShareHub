@@ -3,7 +3,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from .forms import CustomCreateForm, CustomLoginForm
 
-class MyLoginView(generic.FormView):
+class MyLoginView(LoginView):
     form_class = CustomLoginForm
     template_name = 'auth/login.html'
     success_url = reverse_lazy('home_page')
