@@ -1,9 +1,10 @@
 from django.views import generic
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
-from .forms import CustomCreateForm
+from .forms import CustomCreateForm, CustomLoginForm
 
-class MyLoginView(LoginView):
+class MyLoginView(generic.FormView):
+    form_class = CustomLoginForm
     template_name = 'auth/login.html'
     
     def get_success_url(self):

@@ -1,15 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-</head>
-<body>
-    <form action="{% url "login_page" %}" method="post">
-        {{form}}
-        {% csrf_token %}
-        <button>Login</button>
-    </form>
-</body>
-</html>
+{% extends "auth/base.html" %}
+{% load static %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "css/auth/login.css" %}">
+{% endblock  %}    
+{% block title %}Login Page{% endblock  %}
+
+{% block main %}
+    <section class='login-section'>
+        <div class="login">
+            <img src="{% static "img/logo.png" %}" alt="" >
+            <form action="{% url "login_page" %}" method="post">
+                {% for field in form %}
+                    <div class='input-data'>
+                        {{ field }}
+                        <div class="underline"></div>
+                        <label for="{{ field.label }}">{{ field.label }}</label>
+                    </div>
+                {% endfor %}
+                {% csrf_token %}
+                <button class="login-btn">Login</button>
+            </form>
+        </div>
+        <a class='new-account' href={% url "register_page" %}>Create new account!</a>
+    </section>
+{% endblock  %}
