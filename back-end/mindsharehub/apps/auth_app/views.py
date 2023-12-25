@@ -6,10 +6,8 @@ from .forms import CustomCreateForm, CustomLoginForm
 class MyLoginView(generic.FormView):
     form_class = CustomLoginForm
     template_name = 'auth/login.html'
-    
-    def get_success_url(self):
-        return reverse_lazy('home_page')
-    
+    success_url = reverse_lazy('home_page')
+
     
 class MyLogoutView(LogoutView):
     pass
@@ -18,3 +16,4 @@ class MyLogoutView(LogoutView):
 class MyCreationView(generic.CreateView):
     form_class = CustomCreateForm
     template_name = 'auth/register.html'
+    success_url = reverse_lazy('login_page')
