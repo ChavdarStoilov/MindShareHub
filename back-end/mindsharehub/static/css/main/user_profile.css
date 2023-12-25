@@ -1,0 +1,106 @@
+.profile-section form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+    width: 75%;
+    margin: 50px auto;
+    
+}
+
+.profile-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 30%;
+    position: relative;
+}
+
+.profile-row input{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 17px;
+    outline: none;
+    border-bottom: 2px solid rgba(0,0,0, 0.12);
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+
+.profile-row select{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 17px;
+    outline: none;
+    border-bottom: 2px solid rgba(0,0,0, 0.12);
+    background-color: transparent;
+    text-align: center;
+    border-radius: 4px;
+
+}
+
+
+.profile-row .underline{
+    position: absolute;
+    bottom: 0px;
+    height: 2px;
+    width: 100%;
+    right: 215px;
+}
+
+.profile-row .underline:before{
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    background: #3498db;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.profile-row input:focus ~ .underline:before{
+    transform: scale(1);
+}
+
+.profile-settings-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+
+.profile-btn {
+    display: flex;
+    gap: 20px;
+}
+
+.save-profile-btn {
+    width: 120px;
+    border: none;
+    border-radius: 24px;
+    padding: 4px 16px;
+    color: black;
+    background-color: antiquewhite;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.close-profile-btn {
+    width: 90px;
+    border: none;
+    border-radius: 24px;
+    padding: 4px 16px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: antiquewhite;
+
+}

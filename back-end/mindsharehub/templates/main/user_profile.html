@@ -1,0 +1,35 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "css/main/user_profile.css" %}">
+{% endblock  %}
+
+{% block content %}
+    
+    <section class="profile-section">
+        <form action="{% url "user_profile_page" %}" method="post">
+
+            {% for field in form %}
+                <div class="profile-row">
+                    {% if field.label == 'Avatar' %}
+                        <img src="{{profile.avatar}}" alt="profile-settings-avatar" class="profile-settings-avatar">
+                        <label for="{{ field.label }}">Enter url for you avatar :</label>
+                        {{ field }}
+                        <div class="underline"></div>
+                    {% else %}
+                        <label for="{{ field.label }}">{{ field.label }} :</label>
+                        {{field}}
+                        <div class="underline"></div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            {% csrf_token %}
+            <section class="profile-btn">
+                <button class="save-profile-btn">Save</button>
+                <a href={% url "home_page" %} class="close-profile-btn">Close</a>
+            </section>
+        </form>
+    </section>
+
+{% endblock  %}

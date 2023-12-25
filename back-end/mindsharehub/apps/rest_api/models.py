@@ -12,6 +12,11 @@ class UserProfile(models.Model):
         ('do not disturb', 'do not disturb'),
     )
     
+    avatar = models.URLField(
+        _("avatar"),
+        blank=True
+    )
+    
     first_name = models.CharField(
         _("first name"),
         max_length=150,
@@ -25,10 +30,7 @@ class UserProfile(models.Model):
     
     email = models.EmailField(_("email address"), blank=True)
     
-    avatar = models.URLField(
-        _("avatar"),
-        blank=True
-    )
+   
     
     desc = models.TextField(
         max_length=300,

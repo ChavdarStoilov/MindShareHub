@@ -38,13 +38,22 @@
             </li>
             <li class="auth-menu-btn">
                 {% if profile.avatar %}
-                    <img src="{{profile.avatar}}" alt="profile-avatar" class="profile-avatar">
+                    <img src="{{profile.avatar}}" alt="profile-avatar" 
+                    class="profile-avatar 
+                    {% if profile.status == 'online' %}
+                        online
+                    {% elif profile.status == 'offline' %}
+                        offline
+                    {% else %}
+                        do-not-disturb
+                    {% endif %}"
+                    >
                 {% else %}
                     <i class="fas fa-user"></i>
                 {% endif %}
                 <span class="tooltiptext">Profile</span>
                 <div class='profile-dropdown'>
-                    <a>Profile</a>
+                    <a href={% url "user_profile_page" %}>Profile</a>
                     <a href={% url "logouting" %}>Logout</a>
                 </div>
             </li>
