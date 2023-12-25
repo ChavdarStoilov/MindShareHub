@@ -1,12 +1,28 @@
 {% extends "auth/base.html" %}
+{% load static %}
 
-    
+{% block styles %}
+<link rel="stylesheet" href="{% static "css/auth/register.css" %}">
+{% endblock  %}    
+
 {% block title %}Registration{% endblock  %}
 
 {% block main %}
-    <form action="{% url "login_page" %}" method="post">
-        {{form}}
-        {% csrf_token %}
-        <button>Login</button>
-    </form>
+    <section class='register-section'>
+        <div class="register">
+            <img src="{% static "img/logo.png" %}" alt="" >
+            <form action="{% url "register_page" %}" method="post">
+                {% for field in form %}
+                    <div class='input-data'>
+                        {{ field }}
+                        <div class="underline"></div>
+                        <label for="{{ field.label }}">{{ field.label }}</label>
+                    </div>
+                {% endfor %}
+                {% csrf_token %}
+                <button class="register-btn">Register</button>
+            </form>
+        </div>
+        <a class='exist-account' href={% url "login_page" %}>I alrady have account!</a>
+    </section>
 {% endblock  %}
