@@ -58,6 +58,20 @@ class Posts(models.Model):
     )
 
     user_id = models.ForeignKey(
+        UserProfile,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+    )
+
+class UsersFirendsList(models.Model):
+
+    friends = models.ManyToManyField(
+        UserProfile,
+        blank=True,
+    )   
+
+    user_id = models.ForeignKey (
         USER_MODEL,
         on_delete=models.CASCADE,
         blank=True,

@@ -19,12 +19,17 @@
 
         <section class="all-posts">
             {% for field in posts %}
-                {{field.user_id}}
+                <div class="post">
+                    {{field}}
+                </div>
             {% endfor %}
         </section>
     </section>
 
     <section class="friends">
+        {% for friend in user_friends %}
+            {{friend}}
+        {% endfor %}
     </section>
 {% endblock  %}
 

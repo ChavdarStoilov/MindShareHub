@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 class MyLoginView(LoginView):
     form_class = CustomLoginForm
     template_name = 'auth/login.html'
+    success_url = reverse_lazy('home_page')
 
     
 @login_required
@@ -21,3 +22,4 @@ def my_logout(request):
 class MyCreationView(generic.CreateView):
     form_class = CustomCreateForm
     template_name = 'auth/register.html'
+    success_url = reverse_lazy('login_page')
