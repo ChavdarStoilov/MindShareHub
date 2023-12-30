@@ -50,3 +50,16 @@ class UserProfile(models.Model):
         blank=True,
         null=True,
     )
+
+class Posts(models.Model):
+    
+    post = models.TextField(
+        max_length = 1000
+    )
+
+    user_id = models.ForeignKey(
+        USER_MODEL,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+    )

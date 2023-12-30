@@ -2,11 +2,26 @@
 {% load static %}
 
 {% block styles %}
-<link rel="stylesheet" href={% static "css/homePage.css" %}>
+<link rel="stylesheet" href={% static "css/main/homePage.css" %}>
 {% endblock  %}
 
 {% block content %}
     <section class="posts">
+        <section class="write-post">
+            <form method="post" class="post-form" method="post">
+                <input class="new-post" name="new-post" onclick="openNewPost();" placeholder="Ener post">
+                </input>
+                {% csrf_token %}
+            </form>
+        </section>
+        <div class="modal">
+        </div>
+
+        <section class="all-posts">
+            {% for field in posts %}
+                {{field.user_id}}
+            {% endfor %}
+        </section>
     </section>
 
     <section class="friends">

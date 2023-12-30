@@ -3,15 +3,29 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic
 from django.http import Http404
-from ..rest_api.models import UserProfile
-from .forms import UserProfileForm
+from django.shortcuts import redirect
+from ..rest_api.models import UserProfile, Posts
+from .forms import UserProfileForm, PostForms
 from django.utils.translation import gettext as _
 
 
-class HomePage(LoginRequiredMixin, generic.TemplateView):
+class HomePage(LoginRequiredMixin, generic.ListView):
     template_name = 'main/home.html'
     login_url = reverse_lazy('login_page')
-    
+    model = Posts
+    context_object_name = "posts"
+
+    def post(self, request, *args, **kwargs):
+        form = PostForms({
+            "post": request.POST['new-post'],
+            "user_id": self.request.user.pk
+        })
+
+
+        if form.is_valid():
+            form.save()
+
+        return redirect(reverse_lazy('home_page'))
     
 class UserProfileView(LoginRequiredMixin, generic.UpdateView):
     template_name = 'main/user_profile.html'

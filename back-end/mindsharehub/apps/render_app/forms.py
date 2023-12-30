@@ -1,4 +1,4 @@
-from ..rest_api.models import UserProfile
+from ..rest_api.models import UserProfile, Posts
 from django import forms
 
 class UserProfileForm(forms.ModelForm):
@@ -13,3 +13,10 @@ class UserProfileForm(forms.ModelForm):
             "desc",
             "status",
         )
+
+
+class PostForms(forms.ModelForm):
+
+    class Meta:
+        model = Posts
+        fields='__all__'
