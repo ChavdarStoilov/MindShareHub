@@ -51,3 +51,15 @@ function closePostModal() {
     modal.style.display = 'none'
     
 }
+
+function showComments(pk) {
+    const comments = document.querySelector(`.comments-${pk}`)
+
+    if (comments.style.display === "flex") {
+        comments.style.display = "none"
+    }
+    else {
+        comments.style.display = "flex"
+    }
+
+}

@@ -100,6 +100,43 @@ html, body {
     padding: 12px 24px;
 }
 
+.fa-thumbs-up {
+    font-size: 24px;
+    color: blue;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    align-items: center;
+    justify-content: center;
+}
+
+.comments {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+}
+
+.sent-comment {
+    width: 100%;
+}
+
+.sent-comment input {
+    width: 90%;
+    margin-right: 18px;
+}
+
+.sent-comment i {
+    cursor: pointer;
+}
+
 .friends {
     margin-top: 50px;
     width: 15%;
